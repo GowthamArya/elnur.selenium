@@ -49,7 +49,7 @@ namespace elnur.selenium.HomePage
                 action.MoveToElement(aboutMenu).Perform();
                 Task.Delay(3000).Wait();
 
-                var listItem = driver.FindElements(By.CssSelector("#ulaboutDropdown a"));
+                var listItem = driver.FindElements(By.ClassName("dropdown-menu p-0 m-0 bg-light-theme"));
                 for (var item = 0; item < listItems.Count; item++)
                 {
                     IWebElement dropdownMenu = driver.FindElement(By.Id("aboutDropdownLink"));
