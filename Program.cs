@@ -5,7 +5,7 @@ public class Program
 {
 	public static void Main(string[] args)
 	{
-		Header header = new Header();
 		Header.TestHeaderNavigate();
+		new Footer().Start();
 	}
 }
