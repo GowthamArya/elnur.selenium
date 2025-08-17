@@ -18,12 +18,12 @@ namespace elnur.selenium.HomePage
             try
             {
                 driver.Navigate().GoToUrl("https://www.elnursolutions.com/");
-                Task.Delay(3000).Wait();
+                Task.Delay(500).Wait();
                 
                 IWebElement productsMenu = driver.FindElement(By.Id("productsDropdownLink"));
                 Actions action = new Actions(driver);
                 action.MoveToElement(productsMenu).Perform();
-                Task.Delay(3000).Wait();
+                Task.Delay(800).Wait();
 
                 var listItems = driver.FindElements(By.CssSelector("#ulproductsDropdown a"));
                 for (var item = 0; item < listItems.Count; item++)
@@ -31,12 +31,12 @@ namespace elnur.selenium.HomePage
                     IWebElement dropdownMenu = driver.FindElement(By.Id("productsDropdownLink"));
                     Actions hoverAction = new Actions(driver);
                     hoverAction.MoveToElement(dropdownMenu).Perform();
-                    Task.Delay(1000).Wait();
+                    Task.Delay(500).Wait();
 
                     var refreshedList = driver.FindElements(By.CssSelector("#ulproductsDropdown a"));
                     string linkText = refreshedList[item].Text;
                     refreshedList[item].Click();
-                    Task.Delay(1000).Wait();
+                    Task.Delay(500).Wait();
 
                     Console.WriteLine("Navigated to Page: " + driver.Title + "--> Clicked - " + linkText);
 
@@ -77,8 +77,8 @@ namespace elnur.selenium.HomePage
                 return;
             }
 
-            Console.ReadKey();
             driver.Quit();
+            Console.ReadKey();
         }
     }
 }
